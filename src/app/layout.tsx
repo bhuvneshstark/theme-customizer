@@ -16,22 +16,20 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Theme Customizer — Live Storefront Prototyping",
   description: "A dashboard where merchants can visually tweak a mock storefront. Change colors, typography, and layout with instant live preview.",
-  keywords: ["Z.ai", "Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui", "AI development", "React"],
-  authors: [{ name: "Z.ai Team" }],
+  keywords: ["Theme Customizer", "Storefront", "E-commerce", "Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui", "React", "Prototyping"],
+  authors: [{ name: "Bhuvnesh" }],
   icons: {
-    icon: "https://z-cdn.chatglm.cn/z-ai/static/logo.svg",
+    icon: "/logo.svg",
   },
   openGraph: {
-    title: "Z.ai Code Scaffold",
-    description: "AI-powered development with modern React stack",
-    url: "https://chat.z.ai",
-    siteName: "Z.ai",
+    title: "Theme Customizer — Live Storefront Prototyping",
+    description: "A dashboard where merchants can visually tweak a mock storefront with instant live preview.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Z.ai Code Scaffold",
-    description: "AI-powered development with modern React stack",
+    title: "Theme Customizer — Live Storefront Prototyping",
+    description: "A dashboard where merchants can visually tweak a mock storefront with instant live preview.",
   },
 };
 

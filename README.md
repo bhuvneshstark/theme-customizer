@@ -53,7 +53,7 @@ The dashboard features a **split-panel layout**:
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/theme-customizer.git
+git clone https://github.com/bhuvneshstark/theme-customizer.git
 cd theme-customizer
 
 # Install dependencies
@@ -172,5 +172,5 @@ MIT License — feel free to use this in your own projects.
 ---
 
 <p align="center">
-  Built with ❤️ using Next.js, TypeScript, and Tailwind CSS
+  Built with ❤️ by <a href="https://github.com/bhuvneshstark">Bhuvnesh</a> using Next.js, TypeScript, and Tailwind CSS
 </p>
