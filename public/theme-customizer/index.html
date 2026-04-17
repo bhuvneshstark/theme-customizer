@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Customizer — Live Storefront Prototyping</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Lora:wght@400;500;600;700&family=Merriweather:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+<body>
+
+    <!-- ═══════════════ HEADER ═══════════════ -->
+    <header class="customizer-header">
+        <div class="d-flex align-items-center justify-content-between px-3 h-100">
+            <div class="d-flex align-items-center gap-2">
+                <div class="header-icon">
+                    <i class="bi bi-palette-fill"></i>
+                </div>
+                <div>
+                    <h6 class="mb-0 fw-bold text-truncate">Theme Customizer</h6>
+                    <small class="text-muted d-none d-sm-inline">Live storefront prototyping</small>
+                </div>
+                <span class="badge bg-secondary text-light ms-2 d-none d-md-inline" id="storeNameBadge">MAISON</span>
+            </div>
+            <div class="d-flex align-items-center gap-1">
+                <button class="btn btn-sm btn-ghost" id="togglePanelBtn" title="Toggle Panel">
+                    <i class="bi bi-layout-sidebar-inset"></i>
+                </button>
+                <div class="btn-group btn-group-sm d-none d-md-flex" role="group" aria-label="Device view">
+                    <button class="btn btn-outline-secondary device-btn active" data-device="desktop" title="Desktop">
+                        <i class="bi bi-display"></i>
+                    </button>
+                    <button class="btn btn-outline-secondary device-btn" data-device="tablet" title="Tablet">
+                        <i class="bi bi-tablet"></i>
+                    </button>
+                    <button class="btn btn-outline-secondary device-btn" data-device="mobile" title="Mobile">
+                        <i class="bi bi-phone"></i>
+                    </button>
+                </div>
+                <button class="btn btn-sm btn-outline-primary d-flex align-items-center gap-1" id="exportCssBtn">
+                    <i class="bi bi-download"></i>
+                    <span class="d-none d-sm-inline">Export CSS</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ═══════════════ MAIN LAYOUT ═══════════════ -->
+    <div class="customizer-body d-flex">
+
+        <!-- ── LEFT: Control Panel ── -->
+        <aside class="control-panel" id="controlPanel">
+            <div class="panel-inner">
+
+                <!-- Quick Presets -->
+                <div class="px-3 pt-3 pb-2">
+                    <label class="form-label text-muted small fw-semibold mb-2">
+                        <i class="bi bi-stars me-1"></i> Quick Presets
+                    </label>
+                    <div class="d-flex flex-wrap gap-1">
+                        <button class="btn btn-sm btn-outline-secondary preset-btn" data-preset="modern-minimal">Modern Minimal</button>
+                        <button class="btn btn-sm btn-outline-secondary preset-btn" data-preset="elegant-boutique">Elegant Boutique</button>
+                        <button class="btn btn-sm btn-outline-secondary preset-btn" data-preset="playful-pop">Playful Pop</button>
+                        <button class="btn btn-sm btn-outline-secondary preset-btn" data-preset="dark-luxury">Dark Luxury</button>
+                        <button class="btn btn-sm btn-outline-secondary preset-btn" data-preset="nature-fresh">Nature Fresh</button>
+                    </div>
+                </div>
+
+                <hr class="mx-3 my-1">
+
+                <!-- Accordion Controls -->
+                <div class="accordion accordion-flush" id="controlsAccordion">
+
+                    <!-- ── BRAND ── -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#brandSection">
+                                <i class="bi bi-shop me-2"></i> Brand
+                            </button>
+                        </h2>
+                        <div id="brandSection" class="accordion-collapse collapse show" data-bs-parent="#controlsAccordion">
+                            <div class="accordion-body py-2">
+                                <div class="mb-2">
+                                    <label class="form-label small">Store Name</label>
+                                    <input type="text" class="form-control form-control-sm" id="storeName" value="MAISON">
+                                </div>
+                                <div class="mb-0">
+                                    <label class="form-label small">Tagline</label>
+                                    <input type="text" class="form-control form-control-sm" id="storeTagline" value="Curated essentials for modern living">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ── COLORS ── -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#colorsSection">
+                                <i class="bi bi-palette me-2"></i> Colors
+                            </button>
+                        </h2>
+                        <div id="colorsSection" class="accordion-collapse collapse" data-bs-parent="#controlsAccordion">
+                            <div class="accordion-body py-2">
+                                <div class="row g-2">
+                                    <div class="col-6" id="colorPrimary"></div>
+                                    <div class="col-6" id="colorSecondary"></div>
+                                    <div class="col-6" id="colorAccent"></div>
+                                    <div class="col-6" id="colorBackground"></div>
+                                    <div class="col-6" id="colorText"></div>
+                                    <div class="col-6" id="colorCardBg"></div>
+                                    <div class="col-6" id="colorHeroFrom"></div>
+                                    <div class="col-6" id="colorHeroTo"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ── TYPOGRAPHY ── -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#typographySection">
+                                <i class="bi bi-type me-2"></i> Typography
+                            </button>
+                        </h2>
+                        <div id="typographySection" class="accordion-collapse collapse" data-bs-parent="#controlsAccordion">
+                            <div class="accordion-body py-2">
+                                <div class="mb-2">
+                                    <label class="form-label small">Heading Font</label>
+                                    <select class="form-select form-select-sm" id="headingFont">
+                                        <option value="Inter">Inter</option>
+                                        <option value="Playfair Display">Playfair Display</option>
+                                        <option value="Poppins">Poppins</option>
+                                        <option value="Montserrat">Montserrat</option>
+                                        <option value="Lora">Lora</option>
+                                        <option value="Merriweather">Merriweather</option>
+                                        <option value="Source Sans 3">Source Sans 3</option>
+                                        <option value="DM Sans">DM Sans</option>
+                                    </select>
+                                </div>
+                                <div class="mb-2">
+                                    <label class="form-label small">Body Font</label>
+                                    <select class="form-select form-select-sm" id="bodyFont">
+                                        <option value="Inter">Inter</option>
+                                        <option value="Playfair Display">Playfair Display</option>
+                                        <option value="Poppins">Poppins</option>
+                                        <option value="Montserrat">Montserrat</option>
+                                        <option value="Lora">Lora</option>
+                                        <option value="Merriweather">Merriweather</option>
+                                        <option value="Source Sans 3">Source Sans 3</option>
+                                        <option value="DM Sans">DM Sans</option>
+                                    </select>
+                                </div>
+                                <div class="mb-2">
+                                    <label class="form-label small d-flex justify-content-between">
+                                        <span>Base Font Size</span>
+                                        <span class="text-muted font-monospace" id="fontSizeVal">16px</span>
+                                    </label>
+                                    <input type="range" class="form-range" min="12" max="22" value="16" id="baseFontSize">
+                                </div>
+                                <div class="mb-0">
+                                    <label class="form-label small d-flex justify-content-between">
+                                        <span>Heading Weight</span>
+                                        <span class="text-muted font-monospace" id="weightVal">700</span>
+                                    </label>
+                                    <input type="range" class="form-range" min="300" max="900" step="100" value="700" id="headingWeight">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ── LAYOUT ── -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#layoutSection">
+                                <i class="bi bi-grid-3x3-gap me-2"></i> Layout
+                            </button>
+                        </h2>
+                        <div id="layoutSection" class="accordion-collapse collapse" data-bs-parent="#controlsAccordion">
+                            <div class="accordion-body py-2">
+                                <div class="mb-2">
+                                    <label class="form-label small">Grid Columns</label>
+                                    <div class="btn-group w-100" role="group">
+                                        <button class="btn btn-sm btn-outline-secondary grid-col-btn" data-cols="2">2</button>
+                                        <button class="btn btn-sm btn-outline-primary grid-col-btn active" data-cols="3">3</button>
+                                        <button class="btn btn-sm btn-outline-secondary grid-col-btn" data-cols="4">4</button>
+                                    </div>
+                                </div>
+                                <div class="mb-2">
+                                    <label class="form-label small">Card Style</label>
+                                    <div class="btn-group w-100" role="group">
+                                        <button class="btn btn-sm btn-outline-secondary card-style-btn" data-style="flat">Flat</button>
+                                        <button class="btn btn-sm btn-outline-primary card-style-btn active" data-style="elevated">Elevated</button>
+                                        <button class="btn btn-sm btn-outline-secondary card-style-btn" data-style="bordered">Bordered</button>
+                                    </div>
+                                </div>
+                                <div class="mb-2">
+                                    <label class="form-label small">Header Style</label>
+                                    <div class="btn-group w-100" role="group">
+                                        <button class="btn btn-sm btn-outline-secondary header-style-btn" data-style="centered">Centered</button>
+                                        <button class="btn btn-sm btn-outline-primary header-style-btn active" data-style="split">Split</button>
+                                        <button class="btn btn-sm btn-outline-secondary header-style-btn" data-style="minimal">Minimal</button>
+                                    </div>
+                                </div>
+                                <div class="mb-2">
+                                    <label class="form-label small d-flex justify-content-between">
+                                        <span>Border Radius</span>
+                                        <span class="text-muted font-monospace" id="radiusVal">8px</span>
+                                    </label>
+                                    <input type="range" class="form-range" min="0" max="24" value="8" id="borderRadius">
+                                </div>
+                                <div class="mb-0">
+                                    <label class="form-label small d-flex justify-content-between">
+                                        <span>Section Spacing</span>
+                                        <span class="text-muted font-monospace" id="spacingVal">48px</span>
+                                    </label>
+                                    <input type="range" class="form-range" min="24" max="96" step="4" value="48" id="sectionSpacing">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ── BUTTONS ── -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#buttonsSection">
+                                <i class="bi bi-cursor me-2"></i> Buttons
+                            </button>
+                        </h2>
+                        <div id="buttonsSection" class="accordion-collapse collapse" data-bs-parent="#controlsAccordion">
+                            <div class="accordion-body py-2">
+                                <div class="mb-2">
+                                    <label class="form-label small">Button Shape</label>
+                                    <div class="btn-group w-100" role="group">
+                                        <button class="btn btn-sm btn-outline-primary btn-shape-btn active" data-shape="rounded">Rounded</button>
+                                        <button class="btn btn-sm btn-outline-secondary btn-shape-btn" data-shape="squared">Squared</button>
+                                        <button class="btn btn-sm btn-outline-secondary btn-shape-btn" data-shape="pill">Pill</button>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label small">Button Variant</label>
+                                    <div class="btn-group w-100" role="group">
+                                        <button class="btn btn-sm btn-outline-primary btn-variant-btn active" data-variant="filled">Filled</button>
+                                        <button class="btn btn-sm btn-outline-secondary btn-variant-btn" data-variant="outlined">Outlined</button>
+                                        <button class="btn btn-sm btn-outline-secondary btn-variant-btn" data-variant="ghost">Ghost</button>
+                                    </div>
+                                </div>
+                                <label class="form-label small text-muted">Preview</label>
+                                <div class="d-flex gap-2">
+                                    <button class="preview-btn" id="previewBtnPrimary">Add to Cart</button>
+                                    <button class="preview-btn-accent" id="previewBtnAccent">Buy Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- /accordion -->
+
+                <hr class="mx-3 my-1">
+
+                <!-- Save / Reset -->
+                <div class="px-3 pb-3">
+                    <div class="d-flex gap-2 mb-2">
+                        <button class="btn btn-sm btn-outline-primary flex-fill" data-bs-toggle="modal" data-bs-target="#savePresetModal">
+                            <i class="bi bi-bookmark-plus me-1"></i> Save Preset
+                        </button>
+                        <button class="btn btn-sm btn-outline-secondary flex-fill" id="resetBtn">
+                            <i class="bi bi-arrow-counterclockwise me-1"></i> Reset
+                        </button>
+                    </div>
+                    <div id="savedPresetsList"></div>
+                </div>
+
+            </div>
+        </aside>
+
+        <!-- ── RIGHT: Storefront Preview ── -->
+        <main class="preview-area">
+            <div class="preview-frame" id="previewFrame">
+                <div id="storefront"></div>
+            </div>
+        </main>
+
+    </div>
+
+    <!-- ═══════════════ SAVE PRESET MODAL ═══════════════ -->
+    <div class="modal fade" id="savePresetModal" tabindex="-1">
+        <div class="modal-dialog modal-sm modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title">Save Theme Preset</h6>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" class="form-control form-control-sm" id="presetNameInput" placeholder="Preset name...">
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button class="btn btn-sm btn-primary" id="savePresetConfirm">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════ TOAST ═══════════════ -->
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999">
+        <div id="toastContainer"></div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- Theme Customizer Logic -->
+    <script src="js/theme-customizer.js"></script>
+
+</body>
+</html>

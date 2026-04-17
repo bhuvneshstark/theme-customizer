@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Theme Customizer — Live Storefront Prototyping",
   description: "A dashboard where merchants can visually tweak a mock storefront. Change colors, typography, and layout with instant live preview.",
-  keywords: ["Theme Customizer", "Storefront", "E-commerce", "Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui", "React", "Prototyping"],
+  keywords: ["Theme Customizer", "Storefront", "E-commerce", "HTML", "CSS", "Bootstrap", "jQuery", "PHP", "JavaScript", "Prototyping"],
   authors: [{ name: "Bhuvnesh" }],
   icons: {
     icon: "/logo.svg",
