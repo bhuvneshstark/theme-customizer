@@ -49,7 +49,7 @@ export function ThemeCustomizer() {
   };
 
   return (
-    <div className="h-screen flex flex-col bg-background">
+    <div className="fixed inset-0 flex flex-col bg-background z-50">
       {/* ── Header Bar ── */}
       <header className="h-14 border-b bg-card flex items-center justify-between px-4 shrink-0">
         <div className="flex items-center gap-3">
